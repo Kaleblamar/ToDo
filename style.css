@@ -235,6 +235,7 @@ li {
   background-color: transparent;
   border: none;
   color: orange;
+  padding: 5px;
 }
 #completed:hover {
   cursor: pointer;
