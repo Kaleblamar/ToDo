@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="To do list" />
+    <meta name="author" content="James Kaleb Lamar" />
+    <script
+      src="https://kit.fontawesome.com/5c1c4101a5.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="./script.js"></script>
+    <title>To Do List</title>
+  </head>
+  <body>
+    <!-- ========================== -->
+    <!-- side menu  -->
+    <!-- ========================= -->
+
+    <aside class="sideMenu">
+      <h1>Tasks completed</h1>
+      <span class="wrapper"
+        >Total Completed: <span class="totalCompleted"> </span
+      ></span>
+      <div id="completedTasks"></div>
+      <div class="clearCompletedBox">
+        <button class="clearCompleted">Clear</button>
+      </div>
+    </aside>
+
+    <!-- ============================== -->
+    <!-- toDo form -->
+    <!-- ============================== -->
+    <div class="container">
+      <button id="completed"><i class="fa-solid fa-book"></i></button>
+      <h1>To Do's</h1>
+      <div class="inputBox">
+        <input type="text" name="toDo" id="toDo" placeholder="Enter a To Do" />
+        <button id="add"><i class="fa-solid fa-plus"></i></button>
+        <button id="delete" class="trash-can">
+          <i class="fa-solid fa-trash-can"></i>
+        </button>
+      </div>
+      <div class="toDoList"></div>
+    </div>
+  </body>
+</html>
