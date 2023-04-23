@@ -140,6 +140,10 @@ li {
   margin-bottom: 10px;
   list-style: none;
   font-family: var(--font-family);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
 }
 
 .slide {
@@ -169,6 +173,7 @@ li {
   display: flex;
   justify-content: space-between;
   transition: 1.5s ease-in-out;
+  text-align: center;
 }
 .trash {
   display: inline-block;
@@ -228,7 +233,7 @@ li {
 
 #completed {
   position: absolute;
-  z-index: 1000;
+  z-index: 1;
   top: 10px;
   right: 10px;
   font-size: 30px;
@@ -240,6 +245,7 @@ li {
 #completed:hover {
   cursor: pointer;
 }
+
 .side {
   transform: translateX(0);
 }
@@ -273,7 +279,6 @@ li {
 }
 
 .totalCompleted {
-  /* font-family: var(--font-family); */
   color: red;
   font-size: 20px;
 }
@@ -295,4 +300,33 @@ li {
   border-radius: 5px;
   font-size: 18px;
   transition: 0.3s ease;
+}
+.caption,
+.captionComplete,
+.captionDelete {
+  position: absolute;
+  color: white;
+  top: 0;
+  right: 10px;
+  z-index: 0;
+  font-family: sans-serif;
+  font-size: 16px;
+  padding: 2px;
+  opacity: 0;
+  width: 200px;
+  text-align: center;
+  border-radius: 10px;
+  transition: 0.3s ease;
+}
+#completed:hover + .caption {
+  opacity: 0.5;
+}
+#add:hover + .caption {
+  opacity: 0.5;
+}
+.trash-can:hover + .caption {
+  opacity: 0.5;
+}
+.test {
+  opacity: 0.5;
 }

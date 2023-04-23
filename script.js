@@ -11,6 +11,8 @@ const sideMenu = document.querySelector(`.sideMenu`);
 let count = document.querySelector(`.totalCompleted `);
 const output = document.querySelector(`#completedTasks`);
 const clear = document.querySelector(`.clearCompleted `);
+const captionCompleted = document.querySelector(`.captionComplete`);
+const captionDelete = document.querySelector(`.captionDelete`);
 
 // ======================================
 // Event Listeners
@@ -36,10 +38,13 @@ function addToDo(event) {
       `<input type="radio" name="listItem" id="listItem" </input>` +
       toDo.value +
       `<button class = "trash"><i class="fa-solid fa-trash-can"></i></button>`;
+
     toDoList.appendChild(newToDo);
     toDo.value = ``;
 
     const inputRadio = newToDo.querySelector(`#listItem`);
+    const remove = newToDo.querySelector(`.trash`);
+    // const deleteBtn = newToDo.querySelector(`#caption`);
     inputRadio.addEventListener(`input`, (event) => {
       console.log(event.target.checked);
       if (event.target.checked === true) {
@@ -68,7 +73,6 @@ function addToDo(event) {
       }
     });
 
-    const remove = newToDo.querySelector(`.trash`);
     remove.addEventListener(`click`, () => {
       newToDo.classList.add(`remove`);
       function deleteFunc() {
@@ -91,6 +95,20 @@ function addToDo(event) {
         toDoList.removeChild(newToDo);
       }
     });
+
+    inputRadio.addEventListener(`mouseover`, () => {
+      captionCompleted.classList.add(`test`);
+    });
+    inputRadio.addEventListener(`mouseout`, () => {
+      captionCompleted.classList.remove(`test`);
+    });
+
+    remove.addEventListener(`mouseover`, () => {
+      captionDelete.classList.add(`test`);
+    });
+    remove.addEventListener(`mouseout`, () => {
+      captionDelete.classList.remove(`test`);
+    });
   }
 }
 function addToDoKey(e) {
@@ -107,11 +125,16 @@ function addToDoKey(e) {
         `<input type="radio" name="listItem" id="listItem" </input>` +
         toDo.value +
         `<button  class = "trash"><i class="fa-solid fa-trash-can"></i></button>`;
+
       const completed = document.getElementById(`listItem`);
+
       toDoList.appendChild(newToDo);
       toDo.value = ``;
 
       const inputRadio = newToDo.querySelector(`#listItem`);
+
+      const remove = newToDo.querySelector(`.trash`);
+
       inputRadio.addEventListener(`input`, (event) => {
         console.log(event.target.checked);
         if (event.target.checked === true) {
@@ -141,7 +164,7 @@ function addToDoKey(e) {
       });
 
       console.dir(newToDo);
-      const remove = newToDo.querySelector(`.trash`);
+
       remove.addEventListener(`click`, () => {
         newToDo.classList.add(`remove`);
 
@@ -163,6 +186,20 @@ function addToDoKey(e) {
         function clear() {
           toDoList.removeChild(newToDo);
         }
+      });
+
+      inputRadio.addEventListener(`mouseover`, () => {
+        captionCompleted.classList.add(`test`);
+      });
+      inputRadio.addEventListener(`mouseout`, () => {
+        captionCompleted.classList.remove(`test`);
+      });
+
+      remove.addEventListener(`mouseover`, () => {
+        captionDelete.classList.add(`test`);
+      });
+      remove.addEventListener(`mouseout`, () => {
+        captionDelete.classList.remove(`test`);
       });
     }
   }

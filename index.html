@@ -35,15 +35,22 @@
     <!-- ============================== -->
     <div class="container">
       <button id="completed"><i class="fa-solid fa-book"></i></button>
+      <p class="caption">Click to view log</p>
+
       <h1>To Do's</h1>
       <div class="inputBox">
         <input type="text" name="toDo" id="toDo" placeholder="Enter a To Do" />
         <button id="add"><i class="fa-solid fa-plus"></i></button>
+        <p class="caption">Add To Do</p>
         <button id="delete" class="trash-can">
           <i class="fa-solid fa-trash-can"></i>
         </button>
+        <p class="caption">Delete All</p>
       </div>
-      <div class="toDoList"></div>
+      <div class="toDoList">
+        <p class="captionComplete">Mark Complete</p>
+        <p class="captionDelete">Delete</p>
+      </div>
     </div>
   </body>
 </html>
