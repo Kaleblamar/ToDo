@@ -4,8 +4,8 @@
 
 const toDo = document.querySelector(`#toDo`);
 const addBtn = document.querySelector(`#add`);
-const toDoList = document.querySelector(".toDoList");
-const trashCan = document.querySelector("#delete");
+const toDoList = document.querySelector(`.toDoList`);
+const trashCan = document.querySelector(`#delete`);
 const ninja = document.querySelector(`#completed`);
 const sideMenu = document.querySelector(`.sideMenu`);
 let count = document.querySelector(`.totalCompleted `);
@@ -13,7 +13,9 @@ const output = document.querySelector(`#completedTasks`);
 const clear = document.querySelector(`.clearCompleted `);
 const captionCompleted = document.querySelector(`.captionComplete`);
 const captionDelete = document.querySelector(`.captionDelete`);
-
+let toDoItems = [];
+let toDoCompleted = [];
+const number = document.querySelector(`#number`);
 // ======================================
 // Event Listeners
 // =====================================
@@ -41,10 +43,13 @@ function addToDo(event) {
 
     toDoList.appendChild(newToDo);
     toDo.value = ``;
-
+    // number.innerText = toDoList.childElementCount - 2;
+    for (i = 0; i <= toDoList.childElementCount - 2; i++) {
+      number.innerText = i;
+    }
     const inputRadio = newToDo.querySelector(`#listItem`);
     const remove = newToDo.querySelector(`.trash`);
-    // const deleteBtn = newToDo.querySelector(`#caption`);
+
     inputRadio.addEventListener(`input`, (event) => {
       console.log(event.target.checked);
       if (event.target.checked === true) {
@@ -56,7 +61,7 @@ function addToDo(event) {
         for (i = 0; i <= output.childElementCount; i++) {
           count.innerText = i;
         }
-
+        number.innerText = number.innerText - 1;
         clear.addEventListener(`click`, () => {
           output.innerHTML = ``;
           count.innerText = ``;
@@ -81,6 +86,7 @@ function addToDo(event) {
       deleteFunc();
       function rm() {
         toDoList.removeChild(newToDo);
+        number.innerText = number.innerText - 1;
       }
     });
 
@@ -92,6 +98,7 @@ function addToDo(event) {
       }
       deleteFunc2();
       function clear() {
+        number.innerText = `0`;
         toDoList.removeChild(newToDo);
       }
     });
@@ -126,10 +133,14 @@ function addToDoKey(e) {
         toDo.value +
         `<button  class = "trash"><i class="fa-solid fa-trash-can"></i></button>`;
 
-      const completed = document.getElementById(`listItem`);
+      // const completed = document.getElementById(`listItem`);
 
       toDoList.appendChild(newToDo);
       toDo.value = ``;
+
+      for (i = 0; i <= toDoList.childElementCount - 2; i++) {
+        number.innerText = i;
+      }
 
       const inputRadio = newToDo.querySelector(`#listItem`);
 
@@ -158,6 +169,7 @@ function addToDoKey(e) {
 
           delay();
           function completeSlide() {
+            number.innerText = number.innerText - 1;
             toDoList.removeChild(newToDo);
           }
         }
@@ -173,6 +185,7 @@ function addToDoKey(e) {
         }
         deleteFunc();
         function rm() {
+          number.innerText = number.innerText - 1;
           toDoList.removeChild(newToDo);
         }
       });
@@ -184,6 +197,7 @@ function addToDoKey(e) {
         }
         deleteFunc2();
         function clear() {
+          number.innerText = `0`;
           toDoList.removeChild(newToDo);
         }
       });

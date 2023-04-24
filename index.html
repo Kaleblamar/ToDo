@@ -26,7 +26,7 @@
       ></span>
       <div id="completedTasks"></div>
       <div class="clearCompletedBox">
-        <button class="clearCompleted">Clear</button>
+        <button class="clearCompleted">Clear All</button>
       </div>
     </aside>
 
@@ -38,6 +38,9 @@
       <p class="caption">Click to view log</p>
 
       <h1>To Do's</h1>
+      <div id="numberOfToDos">
+        <p id="thingsToDo">Things to do: <span id="number">0</span></p>
+      </div>
       <div class="inputBox">
         <input type="text" name="toDo" id="toDo" placeholder="Enter a To Do" />
         <button id="add"><i class="fa-solid fa-plus"></i></button>
@@ -47,6 +50,7 @@
         </button>
         <p class="caption">Delete All</p>
       </div>
+
       <div class="toDoList">
         <p class="captionComplete">Mark Complete</p>
         <p class="captionDelete">Delete</p>
