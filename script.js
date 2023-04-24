@@ -16,6 +16,11 @@ const captionDelete = document.querySelector(`.captionDelete`);
 let toDoItems = [];
 let toDoCompleted = [];
 const number = document.querySelector(`#number`);
+const alertCustom = document.querySelector(`.alert`);
+
+const okay = document.querySelector(`.okay`);
+
+const container = document.querySelector(`.container`);
 // ======================================
 // Event Listeners
 // =====================================
@@ -32,7 +37,22 @@ function addToDo(event) {
   event.preventDefault();
 
   if (toDo.value === ``) {
-    alert(`Enter a To Do`);
+    // alert(`Enter a To Do`);
+
+    alertCustom.classList.add(`showAlert`);
+    container.classList.add(`blur`);
+    okay.addEventListener(`click`, () => {
+      alertCustom.classList.add(`fadeOut`);
+      container.classList.remove(`blur`);
+      function timeOut() {
+        setTimeout(delay, 1000);
+      }
+      timeOut();
+      function delay() {
+        alertCustom.classList.remove(`showAlert`);
+        alertCustom.classList.remove(`fadeOut`);
+      }
+    });
   } else {
     const newToDo = document.createElement(`li`);
     newToDo.classList.add(`newToDo`);
@@ -121,7 +141,22 @@ function addToDo(event) {
 function addToDoKey(e) {
   if (e.key === `Enter`) {
     if (toDo.value === ``) {
-      alert(`Enter a To Do`);
+      // alert(`Enter a To Do`);
+
+      alertCustom.classList.add(`showAlert`);
+      container.classList.add(`blur`);
+      okay.addEventListener(`click`, () => {
+        alertCustom.classList.add(`fadeOut`);
+        container.classList.remove(`blur`);
+        function timeOut() {
+          setTimeout(delay, 1000);
+        }
+        timeOut();
+        function delay() {
+          alertCustom.classList.remove(`showAlert`);
+          alertCustom.classList.remove(`fadeOut`);
+        }
+      });
     } else {
       const newToDo = document.createElement(`li`);
 
